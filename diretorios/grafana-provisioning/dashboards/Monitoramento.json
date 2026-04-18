@@ -275,13 +275,35 @@
                     "kind": "DataQuery",
                     "spec": {
                       "editorMode": "code",
-                      "expr": "(probe_http_content_length) / ignoring(phase) (probe_http_duration_seconds{phase=\"transfer\"} * 1000000)",
-                      "legendFormat": "Download Google",
+                      "expr": "(probe_http_content_length{origem=\"github\"}) / ignoring(phase) (probe_http_duration_seconds{phase=\"transfer\",origem=\"github\"} * 1000000)",
+                      "legendFormat": "Github",
                       "range": true
                     },
                     "version": "v0"
                   },
                   "refId": "A"
+                }
+              },
+              {
+                "kind": "PanelQuery",
+                "spec": {
+                  "hidden": false,
+                  "query": {
+                    "datasource": {
+                      "name": "PBFA97CFB590B2093"
+                    },
+                    "group": "prometheus",
+                    "kind": "DataQuery",
+                    "spec": {
+                      "editorMode": "code",
+                      "expr": "(probe_http_content_length{origem=\"google\"}) / ignoring(phase) (probe_http_duration_seconds{phase=\"transfer\",origem=\"google\"} * 1000000)",
+                      "instant": false,
+                      "legendFormat": "Google",
+                      "range": true
+                    },
+                    "version": "v0"
+                  },
+                  "refId": "B"
                 }
               }
             ],
@@ -308,6 +330,7 @@
                   "axisColorMode": "text",
                   "axisLabel": "",
                   "axisPlacement": "auto",
+                  "axisSoftMin": 0,
                   "barAlignment": 0,
                   "barWidthFactor": 0.6,
                   "drawStyle": "line",
