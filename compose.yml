@@ -4,6 +4,8 @@ services:
     container_name: prometheus
     ports:
       - "9090:9090"
+    networks:
+      - monitoramento
     volumes:
       - ./diretorios/prometheus.yml:/etc/prometheus/prometheus.yml
 
@@ -12,6 +14,8 @@ services:
     container_name: blackbox_exporter
     ports:
       - "9115:9115"
+    networks:
+      - monitoramento
     volumes:
       - ./diretorios/blackbox.yml:/etc/prometheus/blackbox.yml
 
@@ -20,7 +24,14 @@ services:
     container_name: grafana
     ports:
       - "3000:3000"
+    networks:
+      - monitoramento
     volumes:
-      - ./diretorios/grafana-storage:/var/lib/grafana
+      - ./diretorios/grafana-provisioning:/etc/grafana/provisioning/
     environment:
-      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_SECURITY_ADMIN_PASSWORD=31415
+      - GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH=/etc/grafana/provisioning/dashboards/Monitoramento.json
+
+networks:
+  monitoramento:
+    driver: bridge
