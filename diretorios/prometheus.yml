@@ -43,3 +43,9 @@ scrape_configs:
         target_label: instance
       - target_label: __address__
         replacement: 'blackbox:9115'
+
+  - job_name: 'speedtest'
+    scrape_interval: 30m 
+    scrape_timeout: 5m 
+    static_configs:
+      - targets: ['speedtest:9798']

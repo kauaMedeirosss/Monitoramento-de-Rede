@@ -19,6 +19,14 @@ services:
     volumes:
       - ./diretorios/blackbox.yml:/etc/prometheus/blackbox.yml
 
+  speedtest:
+    image: miguelndecarvalho/speedtest-exporter
+    container_name: speedtest
+    ports:
+      - "9798:9798"
+    networks:
+      - monitoramento
+
   grafana:
     image: grafana/grafana:latest
     container_name: grafana
