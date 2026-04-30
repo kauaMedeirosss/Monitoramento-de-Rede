@@ -1,8 +1,15 @@
 modules:
   http_2xx:
     prober: http
+    timeout: 10s  # Dá um tempo extra para o SIGAA responder
     http:
-      preferred_ip_protocol: "ip4"
+      preferred_ip_protocol: "ipv4" # Força usar IPv4 (evita dor de cabeça com IPv6)
+      tls_config:
+        insecure_skip_verify: true  # Ignora se o certificado do governo estiver vencido
+      headers:
+        # Aqui está o disfarce! Faz o site achar que é um humano usando o Chrome no Windows
+        User-Agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+        Accept-Language: "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
   http_post_2xx:
     prober: http
     http:
