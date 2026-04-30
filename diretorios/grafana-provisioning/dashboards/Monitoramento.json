@@ -420,58 +420,24 @@
         "links": [],
         "title": "Status",
         "vizConfig": {
-          "group": "timeseries",
+          "group": "stat",
           "kind": "VizConfig",
           "spec": {
             "fieldConfig": {
               "defaults": {
                 "color": {
-                  "mode": "palette-classic"
-                },
-                "custom": {
-                  "axisBorderShow": false,
-                  "axisCenteredZero": false,
-                  "axisColorMode": "text",
-                  "axisLabel": "",
-                  "axisPlacement": "auto",
-                  "barAlignment": 0,
-                  "barWidthFactor": 0.6,
-                  "drawStyle": "line",
-                  "fillOpacity": 0,
-                  "gradientMode": "none",
-                  "hideFrom": {
-                    "legend": false,
-                    "tooltip": false,
-                    "viz": false
-                  },
-                  "insertNulls": false,
-                  "lineInterpolation": "linear",
-                  "lineWidth": 1,
-                  "pointSize": 5,
-                  "scaleDistribution": {
-                    "type": "linear"
-                  },
-                  "showPoints": "auto",
-                  "showValues": false,
-                  "spanNulls": false,
-                  "stacking": {
-                    "group": "A",
-                    "mode": "none"
-                  },
-                  "thresholdsStyle": {
-                    "mode": "off"
-                  }
+                  "mode": "thresholds"
                 },
                 "thresholds": {
                   "mode": "absolute",
                   "steps": [
                     {
-                      "color": "green",
+                      "color": "dark-red",
                       "value": 0
                     },
                     {
-                      "color": "red",
-                      "value": 80
+                      "color": "dark-green",
+                      "value": 1
                     }
                   ]
                 }
@@ -479,21 +445,21 @@
               "overrides": []
             },
             "options": {
-              "annotations": {
-                "clustering": -1,
-                "multiLane": false
+              "colorMode": "value",
+              "graphMode": "area",
+              "justifyMode": "auto",
+              "orientation": "auto",
+              "percentChangeColorMode": "standard",
+              "reduceOptions": {
+                "calcs": [
+                  "lastNotNull"
+                ],
+                "fields": "",
+                "values": false
               },
-              "legend": {
-                "calcs": [],
-                "displayMode": "list",
-                "placement": "bottom",
-                "showLegend": true
-              },
-              "tooltip": {
-                "hideZeros": false,
-                "mode": "single",
-                "sort": "none"
-              }
+              "showPercentChange": false,
+              "textMode": "auto",
+              "wideLayout": true
             }
           },
           "version": "13.0.0"
@@ -1111,7 +1077,7 @@
                 "spec": {
                   "hidden": false,
                   "query": {
-                    "group": "",
+                    "group": "prometheus",
                     "kind": "DataQuery",
                     "spec": {},
                     "version": "v0"
