@@ -112,10 +112,6 @@
                     {
                       "color": "green",
                       "value": 0
-                    },
-                    {
-                      "color": "red",
-                      "value": 80
                     }
                   ]
                 }
@@ -418,7 +414,7 @@
         "description": "",
         "id": 12,
         "links": [],
-        "title": "Status",
+        "title": "Status SIGAA",
         "vizConfig": {
           "group": "stat",
           "kind": "VizConfig",
@@ -460,6 +456,125 @@
               "showPercentChange": false,
               "textMode": "auto",
               "wideLayout": true
+            }
+          },
+          "version": "13.0.0"
+        }
+      }
+    },
+    "panel-13": {
+      "kind": "Panel",
+      "spec": {
+        "data": {
+          "kind": "QueryGroup",
+          "spec": {
+            "queries": [
+              {
+                "kind": "PanelQuery",
+                "spec": {
+                  "hidden": false,
+                  "query": {
+                    "datasource": {
+                      "name": "PBFA97CFB590B2093"
+                    },
+                    "group": "prometheus",
+                    "kind": "DataQuery",
+                    "spec": {
+                      "editorMode": "code",
+                      "expr": "1 - avg_over_time(probe_success{job=\"ping_google\"}[5m])",
+                      "legendFormat": "DNS Google",
+                      "range": true
+                    },
+                    "version": "v0"
+                  },
+                  "refId": "A"
+                }
+              }
+            ],
+            "queryOptions": {},
+            "transformations": []
+          }
+        },
+        "description": "",
+        "id": 13,
+        "links": [],
+        "title": "Perda de Pacotes (%)",
+        "vizConfig": {
+          "group": "timeseries",
+          "kind": "VizConfig",
+          "spec": {
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "palette-classic"
+                },
+                "custom": {
+                  "axisBorderShow": false,
+                  "axisCenteredZero": false,
+                  "axisColorMode": "text",
+                  "axisLabel": "",
+                  "axisPlacement": "auto",
+                  "barAlignment": 0,
+                  "barWidthFactor": 0.6,
+                  "drawStyle": "line",
+                  "fillOpacity": 0,
+                  "gradientMode": "none",
+                  "hideFrom": {
+                    "legend": false,
+                    "tooltip": false,
+                    "viz": false
+                  },
+                  "insertNulls": false,
+                  "lineInterpolation": "linear",
+                  "lineWidth": 1,
+                  "pointSize": 5,
+                  "scaleDistribution": {
+                    "type": "linear"
+                  },
+                  "showPoints": "auto",
+                  "showValues": false,
+                  "spanNulls": false,
+                  "stacking": {
+                    "group": "A",
+                    "mode": "none"
+                  },
+                  "thresholdsStyle": {
+                    "mode": "off"
+                  }
+                },
+                "min": 0,
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": 0
+                    },
+                    {
+                      "color": "red",
+                      "value": 80
+                    }
+                  ]
+                }
+              },
+              "overrides": []
+            },
+            "options": {
+              "annotations": {
+                "clustering": -1,
+                "multiLane": false
+              },
+              "legend": {
+                "calcs": [],
+                "displayMode": "list",
+                "placement": "bottom",
+                "showLegend": true
+              },
+              "tooltip": {
+                "hideZeros": false,
+                "mode": "single",
+                "sort": "none"
+              }
             }
           },
           "version": "13.0.0"
@@ -817,21 +932,7 @@
         "data": {
           "kind": "QueryGroup",
           "spec": {
-            "queries": [
-              {
-                "kind": "PanelQuery",
-                "spec": {
-                  "hidden": false,
-                  "query": {
-                    "group": "prometheus",
-                    "kind": "DataQuery",
-                    "spec": {},
-                    "version": "v0"
-                  },
-                  "refId": "A"
-                }
-              }
-            ],
+            "queries": [],
             "queryOptions": {},
             "transformations": []
           }
@@ -839,16 +940,24 @@
         "description": "",
         "id": 5,
         "links": [],
-        "title": "Web",
+        "title": "",
         "vizConfig": {
-          "group": "__unconfigured-panel",
+          "group": "text",
           "kind": "VizConfig",
           "spec": {
             "fieldConfig": {
               "defaults": {},
               "overrides": []
             },
-            "options": {}
+            "options": {
+              "code": {
+                "language": "plaintext",
+                "showLineNumbers": false,
+                "showMiniMap": false
+              },
+              "content": "# Web",
+              "mode": "markdown"
+            }
           },
           "version": "13.0.0"
         }
@@ -860,21 +969,7 @@
         "data": {
           "kind": "QueryGroup",
           "spec": {
-            "queries": [
-              {
-                "kind": "PanelQuery",
-                "spec": {
-                  "hidden": false,
-                  "query": {
-                    "group": "prometheus",
-                    "kind": "DataQuery",
-                    "spec": {},
-                    "version": "v0"
-                  },
-                  "refId": "A"
-                }
-              }
-            ],
+            "queries": [],
             "queryOptions": {},
             "transformations": []
           }
@@ -882,16 +977,24 @@
         "description": "",
         "id": 6,
         "links": [],
-        "title": "Direto da Provedora de Internet",
+        "title": "",
         "vizConfig": {
-          "group": "__unconfigured-panel",
+          "group": "text",
           "kind": "VizConfig",
           "spec": {
             "fieldConfig": {
               "defaults": {},
               "overrides": []
             },
-            "options": {}
+            "options": {
+              "code": {
+                "language": "plaintext",
+                "showLineNumbers": false,
+                "showMiniMap": false
+              },
+              "content": "# Direto da Provedora de Internet\n",
+              "mode": "markdown"
+            }
           },
           "version": "13.0.0"
         }
@@ -1071,21 +1174,7 @@
         "data": {
           "kind": "QueryGroup",
           "spec": {
-            "queries": [
-              {
-                "kind": "PanelQuery",
-                "spec": {
-                  "hidden": false,
-                  "query": {
-                    "group": "prometheus",
-                    "kind": "DataQuery",
-                    "spec": {},
-                    "version": "v0"
-                  },
-                  "refId": "A"
-                }
-              }
-            ],
+            "queries": [],
             "queryOptions": {},
             "transformations": []
           }
@@ -1093,16 +1182,24 @@
         "description": "",
         "id": 9,
         "links": [],
-        "title": "Sistemas Web",
+        "title": "",
         "vizConfig": {
-          "group": "__unconfigured-panel",
+          "group": "text",
           "kind": "VizConfig",
           "spec": {
             "fieldConfig": {
               "defaults": {},
               "overrides": []
             },
-            "options": {}
+            "options": {
+              "code": {
+                "language": "plaintext",
+                "showLineNumbers": false,
+                "showMiniMap": false
+              },
+              "content": "# Aplicações Web",
+              "mode": "markdown"
+            }
           },
           "version": "13.0.0"
         }
@@ -1120,7 +1217,7 @@
               "kind": "ElementReference",
               "name": "panel-6"
             },
-            "height": 1,
+            "height": 2,
             "width": 21,
             "x": 0,
             "y": 0
@@ -1136,7 +1233,7 @@
             "height": 6,
             "width": 7,
             "x": 0,
-            "y": 1
+            "y": 2
           }
         },
         {
@@ -1149,7 +1246,7 @@
             "height": 6,
             "width": 7,
             "x": 7,
-            "y": 1
+            "y": 2
           }
         },
         {
@@ -1162,7 +1259,7 @@
             "height": 6,
             "width": 7,
             "x": 14,
-            "y": 1
+            "y": 2
           }
         },
         {
@@ -1172,10 +1269,10 @@
               "kind": "ElementReference",
               "name": "panel-5"
             },
-            "height": 1,
+            "height": 2,
             "width": 21,
             "x": 0,
-            "y": 7
+            "y": 8
           }
         },
         {
@@ -1188,7 +1285,7 @@
             "height": 6,
             "width": 7,
             "x": 0,
-            "y": 8
+            "y": 10
           }
         },
         {
@@ -1201,7 +1298,7 @@
             "height": 6,
             "width": 7,
             "x": 7,
-            "y": 8
+            "y": 10
           }
         },
         {
@@ -1214,7 +1311,20 @@
             "height": 6,
             "width": 7,
             "x": 14,
-            "y": 8
+            "y": 10
+          }
+        },
+        {
+          "kind": "GridLayoutItem",
+          "spec": {
+            "element": {
+              "kind": "ElementReference",
+              "name": "panel-13"
+            },
+            "height": 7,
+            "width": 7,
+            "x": 0,
+            "y": 16
           }
         },
         {
@@ -1224,10 +1334,10 @@
               "kind": "ElementReference",
               "name": "panel-9"
             },
-            "height": 1,
+            "height": 2,
             "width": 21,
             "x": 0,
-            "y": 14
+            "y": 23
           }
         },
         {
@@ -1240,7 +1350,7 @@
             "height": 6,
             "width": 7,
             "x": 0,
-            "y": 15
+            "y": 25
           }
         },
         {
@@ -1253,7 +1363,7 @@
             "height": 6,
             "width": 7,
             "x": 7,
-            "y": 15
+            "y": 25
           }
         },
         {
@@ -1266,7 +1376,7 @@
             "height": 6,
             "width": 7,
             "x": 14,
-            "y": 15
+            "y": 25
           }
         }
       ]
