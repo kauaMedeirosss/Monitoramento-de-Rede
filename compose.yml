@@ -8,6 +8,7 @@ services:
       - monitoramento
     volumes:
       - ./diretorios/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./dados_prometheus:/prometheus
 
   blackbox:
     image: prom/blackbox-exporter:latest
