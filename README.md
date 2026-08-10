@@ -14,8 +14,24 @@ Esse projeto tem como objetivo monitorar alguns parâmetros de rede e verificar 
 
 Esse projeto possui várias aplicações para analisar, armazenar e visualizar os parâmetros estudados. Por questão de praticidade foi adotado o Docker compose que utiliza vários containers e possibilita a pre-configurações dos mesmos, trazendo também a portabilidade tanto para arquiteturas ARM quanto para AMD(x86). Para usar o projeto instale o **DOCKER COMPOSE** no seu sistema operacional. Baixe o repositório e em seguida suba os containers. 
 
+Dentro do diretório use:
 ```bash
 docker compose up -d
+```
+
+Acesse o dashboard do Grafana no navegador usando o `localhost` e a na porta `3000`:
+
+```
+localhost:3000
+```
+
+Você também pode acessar os outros containers:
+
+- prometheus na porta `9090`
+- blackbox na porta `9115`
+- speedtest na porta `9798`
+
+
 
 
 
