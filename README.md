@@ -24,8 +24,7 @@ Acesse o dashboard do Grafana no navegador usando o `localhost` e a na porta `30
 ```
 localhost:3000
 ```
-usuário: admin
-senha: 31425
+usuário: `admin` e senha: `31425`
 
 Você também pode acessar os outros containers:
 
