@@ -1,9 +1,10 @@
 services:
   prometheus:
-    image: prom/prometheus:latest
+    image: prom/prometheus:v2.51.2
     container_name: prometheus
     ports:
       - "9090:9090"
+    restart: always
     networks:
       - monitoramento
     volumes:
@@ -11,28 +12,31 @@ services:
       - ./dados_prometheus:/prometheus
 
   blackbox:
-    image: prom/blackbox-exporter:latest
+    image: prom/blackbox-exporter:v0.25.0
     container_name: blackbox_exporter
     ports:
       - "9115:9115"
+    restart: always
     networks:
       - monitoramento
     volumes:
       - ./diretorios/blackbox.yml:/etc/prometheus/blackbox.yml
 
   speedtest:
-    image: miguelndecarvalho/speedtest-exporter
+    image: miguelndecarvalho/speedtest-exporter:v3.5.4
     container_name: speedtest
     ports:
       - "9798:9798"
+    restart: always
     networks:
       - monitoramento
 
   grafana:
-    image: grafana/grafana:latest
+    image: grafana/grafana:9.5.15
     container_name: grafana
     ports:
       - "3000:3000"
+    restart: always
     networks:
       - monitoramento
     volumes:
