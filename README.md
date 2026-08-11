@@ -19,12 +19,12 @@ Dentro do diretório use:
 docker compose up -d
 ```
 
-Acesse o dashboard do Grafana no navegador usando o `localhost` e a na porta `3000`:
+Acesse o dashboard do Grafana no navegador usando o `localhost` e a porta `3000`:
 
 ```
 localhost:3000
 ```
-usuário: `admin` e senha: `31425`
+usuário: `admin` e senha: `31415`
 
 Você também pode acessar os outros containers:
 
