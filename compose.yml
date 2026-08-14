@@ -7,6 +7,8 @@ services:
     restart: always
     networks:
       - monitoramento
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     volumes:
       - ./diretorios/prometheus.yml:/etc/prometheus/prometheus.yml
       - ./dados_prometheus:/prometheus
@@ -21,6 +23,18 @@ services:
       - monitoramento
     volumes:
       - ./diretorios/blackbox.yml:/etc/prometheus/blackbox.yml
+
+  node_exporter:
+    image: prom/node-exporter:v1.8.2
+    container_name: node_exporter
+    restart: always
+    network_mode: "host"                           
+    pid: "host"
+    volumes:
+      - '/:/host:ro,rslave'
+    command:
+      - '--path.rootfs=/host'
+      - '--collector.wifi'
 
   speedtest:
     image: miguelndecarvalho/speedtest-exporter:v3.5.4

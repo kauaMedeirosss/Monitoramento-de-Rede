@@ -61,7 +61,12 @@ scrape_configs:
         replacement: 'blackbox:9115'
 
   - job_name: 'speedtest'
-    scrape_interval: 30m 
+    scrape_interval: 15m 
     scrape_timeout: 5m 
     static_configs:
       - targets: ['speedtest:9798']
+      
+  - job_name: 'node_exporter'
+    scrape_interval: 15s
+    static_configs:
+      - targets: ['host.docker.internal:9100']
