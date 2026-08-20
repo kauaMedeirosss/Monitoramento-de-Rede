@@ -24,13 +24,15 @@ Acesse o dashboard do Grafana no navegador usando o `localhost` e a porta `3000`
 ```
 localhost:3000
 ```
-usuário: `admin` e senha: `31415`
+usuário: `lcade` e senha: `lcade`
 
 Você também pode acessar os outros containers:
 
 - prometheus na porta `9090`
 - blackbox na porta `9115`
+- node_exporter na porta `9100`
 - speedtest na porta `9798`
+
 
 
 
