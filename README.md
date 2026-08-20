@@ -1,4 +1,4 @@
-# Monitoramento de Redde
+# Monitoramento de Rede
 
 Esse projeto tem como objetivo monitorar alguns parâmetros de rede e verificar a qualidade de internet.
 
