@@ -1,2 +1,5 @@
 # Ignorar o banco de dados do Prometheus
-dados_prometheus/
+diretorios/grafana_data/
+diretorios/influxdb_config/
+diretorios/influxdb_data/
+diretorios/telegraf.conf
