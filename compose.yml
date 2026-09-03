@@ -47,8 +47,10 @@ services:
     environment:
       - GF_SECURITY_ADMIN_USER=lcade
       - GF_SECURITY_ADMIN_PASSWORD=lcade@1234
+      - GF_PLUGINS_AUTO_UPDATE=false
     volumes:
       - ./diretorios/grafana_data:/var/lib/grafana
+      - ./diretorios/grafana-provisioning:/etc/grafana/provisioning/
     depends_on:
       - influxdb
 
