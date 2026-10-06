@@ -54,6 +54,7 @@ services:
     depends_on:
       - influxdb
 
+
 networks:
   monitoramento:
     driver: bridge
