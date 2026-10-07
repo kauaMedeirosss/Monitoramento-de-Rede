@@ -8,8 +8,8 @@ services:
     networks:
       - monitoramento
     volumes:
-      - ./diretorios/influxdb_data:/var/lib/influxdb2
-      - ./diretorios/influxdb_config:/etc/influxdb2
+      - influxdb_data:/var/lib/influxdb2
+      - influxdb_config:/etc/influxdb2
     environment:
       - DOCKER_INFLUXDB_INIT_MODE=setup
       - DOCKER_INFLUXDB_INIT_USERNAME=lcade
@@ -17,6 +17,7 @@ services:
       - DOCKER_INFLUXDB_INIT_ORG=LCADE
       - DOCKER_INFLUXDB_INIT_BUCKET=Monitoramento
       - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=7eWkP2R9xT4vLzQmJnYb8uCsK1wFaGhEjNdXyZpAqUr5tVwPx3oMiLvK9cDsBfGt
+
 
   telegraf:
     image: telegraf:1.31-alpine
@@ -51,9 +52,13 @@ services:
       - GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH=/etc/grafana/provisioning/dashboards/Monitoramento.json
     volumes:
       - ./diretorios/grafana-provisioning:/etc/grafana/provisioning/
-    depends_on:
-      - influxdb
 
+volumes:
+  influxdb_data:
+    name: influxdb_data
+
+  influxdb_config:
+    name: influxdb_config
 
 networks:
   monitoramento:
