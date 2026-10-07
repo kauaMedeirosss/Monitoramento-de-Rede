@@ -17,7 +17,7 @@ Esse projeto possui várias aplicações para analisar, armazenar e visualizar o
 Dentro do diretório use para ajustar a permissão banco de dados:
 
 ```bash
-sudo chown -R 65534:65534 ./dados_prometheus
+sudo chown -R 472:472 ./diretorios/grafana-provisioning   
 ```
 
 E use esse para subir os containers:
